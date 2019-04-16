@@ -15,7 +15,12 @@ app.use(json())
 app.use(urlencoded({ extended: true }))
 app.use(morgan('dev'))
 
-app.use('/api', itemRouter)
+app.use('/api/user', itemRouter)
+
+app.get('/', (req, res) => {
+  res.send({ user: 'message' })
+})
+
 export const start = async () => {
   try {
     await connect()
